@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   width: 60%;
 
   > * + * {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 `;
 
@@ -35,6 +35,7 @@ const Sliders = ({ flagData, handleChange }) => {
             min="0"
             max="100"
             step="1"
+            value={flagData[flagProperty]}
             onChange={e => handleChange(flagProperty, e.target.value)}
           />
         </Control>

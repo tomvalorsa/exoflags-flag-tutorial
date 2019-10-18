@@ -4,6 +4,7 @@ import Page from './components/Page';
 import HalfPage from './components/HalfPage';
 import Flag from './components/Flag';
 import Sliders from './components/Sliders';
+import Button from './components/Button';
 
 const initialFlagData = {
   bgColor: 50,
@@ -11,6 +12,10 @@ const initialFlagData = {
   leftOpacity: 50,
   rightSize: 50,
   rightOpacity: 50
+};
+
+const randomNum = () => {
+  return Math.floor(Math.random() * 101);
 };
 
 function App() {
@@ -23,6 +28,15 @@ function App() {
     });
   };
 
+  const handleClick = () => {
+    const newValues = Object.keys(flagData).reduce((memo, key) => {
+      memo[key] = randomNum();
+      return memo;
+    }, {});
+
+    setFlagData(newValues);
+  };
+
   return (
     <Page>
       <HalfPage>
@@ -31,6 +45,7 @@ function App() {
 
       <HalfPage>
         <Sliders flagData={flagData} handleChange={handleSliderChange} />
+        <Button onClick={handleClick}>Random!</Button>
       </HalfPage>
     </Page>
   );
