@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 `;
 
 const Control = styled.div`
-
   label {
     display: block;
   }
@@ -36,12 +35,12 @@ const Sliders = ({ flagData, handleChange }) => {
             min="0"
             max="100"
             step="1"
-            onChange={(e) => handleChange(flagProperty, e.target.value)}
+            onChange={e => handleChange(flagProperty, e.target.value)}
           />
         </Control>
       ))}
     </Wrapper>
   );
-}
+};
 
 export default Sliders;

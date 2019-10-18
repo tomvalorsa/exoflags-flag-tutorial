@@ -30,10 +30,7 @@ function App() {
       </HalfPage>
 
       <HalfPage>
-        <Sliders
-          flagData={flagData}
-          handleChange={handleSliderChange}
-        />
+        <Sliders flagData={flagData} handleChange={handleSliderChange} />
       </HalfPage>
     </Page>
   );

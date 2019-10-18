@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { scaleLinear } from 'd3-scale';
 
 const FLAG_WIDTH = 500;
-const FLAG_HEIGHT= 300;
+const FLAG_HEIGHT = 300;
 
 const sizeScale = scaleLinear()
   .domain([0, 100])
@@ -33,8 +33,10 @@ const LeftTriangle = styled.div`
   height: 100%;
   width: ${props => props.size}%;
   border-style: solid;
-  border-width: ${props => `${FLAG_HEIGHT}px 0 0 ${FLAG_WIDTH * (props.size / 100)}px`};
-  border-color: ${props => `transparent transparent transparent rgba(0, 0, 0, ${props.opacity})`};
+  border-width: ${props =>
+    `${FLAG_HEIGHT}px 0 0 ${FLAG_WIDTH * (props.size / 100)}px`};
+  border-color: ${props =>
+    `transparent transparent transparent rgba(0, 0, 0, ${props.opacity})`};
 `;
 
 const RightTriangle = styled.div`
@@ -45,8 +47,10 @@ const RightTriangle = styled.div`
   height: ${props => props.size}%;
   width: 100%;
   border-style: solid;
-  border-width: ${props => `${FLAG_HEIGHT * (props.size / 100)}px ${FLAG_WIDTH}px 0 0`};
-  border-color: ${props => `transparent rgba(255, 255, 255, ${props.opacity}) transparent transparent`};
+  border-width: ${props =>
+    `${FLAG_HEIGHT * (props.size / 100)}px ${FLAG_WIDTH}px 0 0`};
+  border-color: ${props =>
+    `transparent rgba(255, 255, 255, ${props.opacity}) transparent transparent`};
 `;
 
 const Flag = ({
@@ -57,8 +61,14 @@ const Flag = ({
   bgColor = 50
 }) => (
   <Wrapper bgColor={bgColorScale(bgColor)}>
-    <LeftTriangle size={sizeScale(leftSize)} opacity={opacityScale(leftOpacity)} />
-    <RightTriangle size={sizeScale(rightSize)} opacity={opacityScale(rightOpacity)} />
+    <LeftTriangle
+      size={sizeScale(leftSize)}
+      opacity={opacityScale(leftOpacity)}
+    />
+    <RightTriangle
+      size={sizeScale(rightSize)}
+      opacity={opacityScale(rightOpacity)}
+    />
   </Wrapper>
 );
 
